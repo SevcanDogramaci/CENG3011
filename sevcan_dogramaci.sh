@@ -23,7 +23,6 @@
 file_url="$1"
 zipped_file_name=$(basename "$file_url")
 extracted_file_name="${zipped_file_name%.*}"
-current_dir="$PWD"
 del_file_name="SV_del.bed"
 size_file_name="size_distribution.txt"
 
@@ -47,7 +46,7 @@ wget "$file_url"
 
 if [ -e "$zipped_file_name" ];then
     echo "Extracting $extracted_file_name..."
-    gunzip  "$current_dir/$zipped_file_name"
+    gunzip  $zipped_file_name
 else 
     exit_with_error "$zipped_file_name not found in current directory !"
 fi
