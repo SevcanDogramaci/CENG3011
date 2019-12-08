@@ -1,0 +1,51 @@
+Python uses reference model in assigment. That is, multiple variables can refer to one object in memory. 
+Therefore, assignment never copies data.
+
+There are two types of data types: mutable and immutable in Python.
+Immutable values: like numbers, strings, and tuples. 
+Mutable values: Almost everything else is mutable, including lists, dicts, and user-defined objects. 
+Mutable means that the value has methods that can change the value in-place. 
+
+Immutable means that the value can never change, instead when you think you are changing the value, 
+you are really making new values from old ones.
+
+- Python list is an array which is mutable, resizable and able to store elements of different data types. 
+  Since it is mutable, it has methods that can change its value in-place.
+
+- On the other hand, Numpy array whose elements are the same data type and accessed by positive integers 
+  has a fixed size and changing its size will create a new array.
+
+--------------------------------------------------------------------------------------------------------
+Example: 
+
+nums = [1,2,3]
+print(id(nums)) # prints 2107213217224
+
+nums.append(4)
+print(id(nums)) # prints 2107213217224
+
+nums = nums.append(5)
+print(id(nums)) # prints 140709903490272
+
+id( ) → Returns "an integer (or long integer) which is guaranteed to be unique and constant for this object 
+during its lifetime." It is like a memory address.
+
+For example, in the above, when we append a new number 4 to nums list, its id is the same as the nums list when it is first created. 
+--------------------------------------------------------------------------------------------------------
+
+Asssignment in Numpy arrays are like in Python lists, assignment never copies data. 
+Also, since Numpy arrays are fixed size, changing its size will create a new array.
+
+THE REASON FOR THE TWO CODES TO DIFFER : 
+
+In Python lists, when we assign the sliced list to a list, we create a new list with elements and modify the value in one of them,  
+if there is an object with same value in the memory, it will be used, if not a new object will be created and the value will refer to this new value in the memory.
+
+On the other hand, in Numpy arrays when we assign the sliced list to a list, we create a new list container for sliced list, 
+however the elements in the container are referencing the actual elements in the first list that we produced slicing. 
+
+Therefore, we created a new array, but the array elements' are references to the actual elements in the original array. 
+So, when we change an element in the original array which is also a reference in new produced array, it will be seen like we change both elements.
+
+
+
