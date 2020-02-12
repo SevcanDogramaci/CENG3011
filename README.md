@@ -1,1 +1,3 @@
-# CENG3011_HW2
+# CENG3011
+CENG3011 Homeworks
+
